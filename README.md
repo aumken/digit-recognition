@@ -1,6 +1,8 @@
 # digitect
 
-Use the MNIST dataset to train a homemade neural network to recognize digits. Made with: NumPy, Python
+Use the MNIST dataset to train a homemade neural network to recognize digits. 
+
+Made with: NumPy, Python
 
 *what i cannot create, i do not understand* - richard feynman.
 
