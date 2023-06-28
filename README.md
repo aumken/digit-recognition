@@ -1,5 +1,7 @@
 # digitect
 
+Use the MNIST dataset to train a homemade neural network to recognize digits. Made with: NumPy, Python
+
 *what i cannot create, i do not understand* - richard feynman.
 
 this quote is the inspiration for this project. i could just use tensorflow or another ml library, but i feel like making my own neural network would help me understand how they work. i should probably start learning linear algebra soon as well.
