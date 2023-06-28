@@ -1,4 +1,4 @@
-# digit-recognition
+# digitect
 
 *what i cannot create, i do not understand* - richard feynman.
 
@@ -35,11 +35,11 @@ now, if we wanted a computer to 'learn', why not give it its own neurons and hav
 
 in the mnist dataset, we are presented with 28x28 pixel images of digits, for a total of 784 pixels. from these 784 pixels, we need to arrive at one of 10 digits (0 to 9).
 
-![training](/images/digit-recognition/training.png)
+![training](/images/training.png)
 
 since we have a starting and ending point, we can 'weave' a neural net between these two points. let's make a 2-layer nn.
 
-![nn](/images/digit-recognition/nn.png)
+![nn](/images/nn.png)
 
 **input layer**
 
@@ -57,7 +57,7 @@ the second layer, our output later, also contains 10 nodes. this layer coalesces
 
 during forward propagation, we traverse through the neural network from the input to the output layer. after we run through the input using our weights and biases, we can compute an initial output.
 
-![fprop](/images/digit-recognition/fprop.png)
+![fprop](/images/fprop.png)
 
 we can model forward propagation the equations above ... but what is `ReLU()` and `softmax()`? let's talk about these activation functions.
 
@@ -67,13 +67,13 @@ activation functions help us get outputs from nodes based on their respective we
 
 **rectified linear unit**
 
-![relu](/images/digit-recognition/relu.png)
+![relu](/images/relu.png)
 
 this activation function is very simple and extremely popular. its basically `ReLU(x) = max(0, x)`, giving us a piecewise linear function which throws out any negative `x` value.
 
 **softmax**
 
-![softmax](/images/digit-recognition/softmax.png)
+![softmax](/images/softmax.png)
 
 the softmax activation function is more of a concluding activation function that we can apply on the output layer of a neural network with set amount of output values, so that we can calculate the probability that our input 'matches' a possible output.
 
@@ -87,13 +87,13 @@ bias is a constant that is added to the product of the input and its weight. the
 
 during backward propagation, we go basically go the opposite direction that we went in part 1 -- from the output to the input layer. why? by doing so, we can check our model's prediction and its deviation from the correct result. from there, we can determine the degree to which we want to modify our weights and biases based on the following equations:
 
-![bprop](/images/digit-recognition/bprop.png)
+![bprop](/images/bprop.png)
 
 ### one-hot encoding
 
 we use one-hot encoding to convert data such that it is easy for an algorithm to read it and create a prediction. one-hot refers to the process of shifting categorical values into new categorical columns and assigning either a binary value to serve as a 'checkbox' for a category. 
 
-![onehot](/images/digit-recognition/onehot.png)
+![onehot](/images/onehot.png)
 
 one-hot encoding is important for the first equation in the backward propogation section. we need to properly subtract the correct result from our predictions so that we can adjust the weights and biases in the next step by our calculated errors.
 
@@ -101,7 +101,7 @@ one-hot encoding is important for the first equation in the backward propogation
 
 to adjust the weights and biases of the model, we can examine the following equations:
 
-![adjust](/images/digit-recognition/adjust.png)
+![adjust](/images/adjust.png)
 
 after making these changes, we need to iterate through the model again with our new weights and biases to train it!
 
@@ -109,7 +109,7 @@ after making these changes, we need to iterate through the model again with our 
 
 the process of using backwards propagation to adjust our model is a form of gradient descent. the purpose of gradient descent is to, simply put, find the minimum value of a function. how? by slowly travelling 'down' the steepest gradients until you reach the local minimum. when we use backward propagation and make changes to the weights and biases, we are 'locating' the 'steepest' path to a minimum error value and selecting new weights and biases at that 'location'.
 
-![gradient](/images/digit-recognition/gradient.png)
+![gradient](/images/gradient.png)
 
 
 ## results
@@ -118,4 +118,4 @@ after running our MNIST neural network on training data, after about 500 iterati
 
 here is correct and incorrect prediction from our neural network:
 
-![demo](/images/digit-recognition/demo.png)
+![demo](/images/demo.png)
